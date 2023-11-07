@@ -1,5 +1,26 @@
 ---
+import Navigation from '../components/Navigation.astro';
+import '../styles/global.css'
 
+const pageTitle = "About Aghora";
+
+const identity = {
+  firstName: "Matheus",
+  country:"Brazil",
+  occupation: "CFO",
+  hobbies: ["Music", "Skateboard", "Surf", "Photography"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "Java", "Golang", "nodejs"]
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const pElement = "p";
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <html lang="en">
@@ -7,28 +28,37 @@
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTitle}</title>
+    <style define:vars={{skillColor, fontWeight, textCase}}>
+      h1 {
+        color:rgba(48, 143, 81, 0.8);
+        font-size: 4rem;
+      }
+
+      .skill {
+        /* color: rgba(6, 47, 20, 0.8); */
+        color: var(--skillColor);
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
+      }
+    </style>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog">Blog</a>
-    
-    <h1>About Aghora</h1>
-    <p>
+    <Navigation />
+    <h1>{pageTitle}</h1>
+    <pElement>
       Aghora is a software development company from Curitiba, Brazil,
       specialized in developing e-commerce, SaaS, and AI-based websites. We were
       founded in 2023, and we are passionate about helping businesses create
       innovative and user-friendly software solutions.
-    </p>
-    <p>
+    </pElement>
+    <pElement>
       We believe that software should be tailored to the specific needs of each
       client, and we work closely with our clients to understand their
       requirements and deliver solutions that exceed their expectations. We also
       stay up-to-date on the latest technologies and trends, so that we can
       provide our clients with the best possible solutions.
-    </p>
+    </pElement>
     <h2>Our Services</h2>
     <ul>
       <li>E-commerce development</li>
@@ -42,5 +72,22 @@
       <li>Customer focus</li>
       <li>Affordability</li>
     </ul>
+
+    <h1>Know our Team</h1>
+    <ul>
+      <li> My name is {identity.firstName}. </li>
+      <li>I live in {identity.country} and I work as a {identity.occupation} on Aghora</li>
+      {identity.hobbies.length >= 2 && 
+        <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]</li>
+      }
+    </ul>
+    <pElement>My main skills are:</pElement>
+    <ul>
+      {skills.map((skill) => <li class="skill"> {skill}</li>)}
+      </ul>
+
+      {happy && <pElement>We are happy when our custumers are happy too!.</pElement>}
+      {finished && <pElement>Our main goal is to delivery always befero the red line. </pElement>}
+      {goal === 3 ? <pElement>We will work hard to delivery our products on 3 days!!!</pElement> : <pElement>Sorry we could not develiry in 3 days..</pElement>}
   </body>
 </html>

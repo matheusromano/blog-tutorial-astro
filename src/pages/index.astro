@@ -1,5 +1,7 @@
 ---
-
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+const pageTile = "Homepage"
 ---
 
 <html lang="en">
@@ -8,12 +10,22 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTile}</title>
+    <style>
+      h1 {
+        color:rgba(48, 143, 81, 0.8);
+        font-size: 4rem;
+      }
+    </style>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog">Blog</a>
-    <h1>Meu site com astro</h1>
+    <Navigation />
+    <h1>{pageTile}</h1>
+	<p>We're the digital partners you can trust to help you achieve your goals, no matter how ambitious they may be.</p>
+	<ul>
+		<li><a href="/posts/post-1">How to Build Profitable e-commerces</a></li>
+		<li><a href="/posts/post-2">10 Game-Changing Strategies for Skyrocketing E-commerce Sales </a></li>
+    <li><a href="/posts/post-3">Maximizing Customer Engagement in Your E-commerce Journey</a></li>
+	</ul>
   </body>
 </html>

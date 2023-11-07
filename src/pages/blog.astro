@@ -1,17 +1,31 @@
+---
+import Navigation from '../components/Navigation.astro';
+import '../styles/global.css';
+
+const pageTitle = "Aghora Development Blog"
+---
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTitle}</title>
+    <style>
+      h1 {
+        color:rgba(48, 143, 81, 0.8);
+        font-size: 4rem;
+      }
+      span {
+        font-weight: "bold";
+      }
+    </style>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog">Blog</a>
+    <Navigation />
     <header>
-      <h1>Disruptive Technologies and How Aghora Can Help You Achieve Them</h1>
+      <h1>{pageTitle}</h1>
+      <h2>Disruptive Technologies and How Aghora Can Help You Achieve Them</h2>
     </header>
 
     <article>
@@ -39,7 +53,7 @@
 
       <ul>
         <li>
-          **E-commerce:** Aghora can help businesses to develop e-commerce
+          <h4>E-commerce</h4> Aghora can help businesses to develop e-commerce
           platforms that leverage AI and ML to provide personalized shopping
           experiences to customers. For example, we can develop a platform that
           uses AI to recommend products to customers based on their past
@@ -47,7 +61,7 @@
         </li>
 
         <li>
-          **SaaS:** Aghora can help businesses to develop SaaS solutions that
+          <h4>SaaS</h4> Aghora can help businesses to develop SaaS solutions that
           use AI and ML to automate tasks and improve efficiency. For example,
           we can develop a SaaS solution that uses AI to automate customer
           service tasks, such as answering customer questions and resolving
@@ -55,7 +69,7 @@
         </li>
 
         <li>
-          **AI-based websites:** Aghora can help businesses to develop
+          <h4>AI-based websites</h4> Aghora can help businesses to develop
           AI-powered websites that can interact with users and learn from their
           behavior. For example, we can develop a website that uses AI to
           provide personalized recommendations to users based on their
